@@ -1,7 +1,7 @@
 {
     "is_video":1,
     "filepath":0,
-    "family": "apriltag",
+    "family": "apriltagxo",
     "hamming_dist": 11,
     "codebook": "",
     "cameraMatrix": [921.315, 0, 649.204, 0, 921.375, 459.739, 0, 0, 1],

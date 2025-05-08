@@ -65,13 +65,17 @@ if __name__ == "__main__":
                     tag_real_size_in_meter_dict = {-1:tag_real_size_in_meter})
 
 
-        cap = None 
-
+        cap = None
+        outer_ticker = 0
+        inner_ticker = 0
         while True:
             # read video frame or image
+            inner_ticker = (inner_ticker+1)%10
+            outer_ticker += 200 if inner_ticker == 0 else 0
             if is_video:
-                if cap is None: cap = cv2.VideoCapture(filename)
+                if cap is None: cap = cv2.VideoCapture(filename); cap.set(cv2.CAP_PROP_AUTOFOCUS, 1); #cap.set(cv2.CAP_PROP_FOCUS, 3)
                 ret, image =cap.read()
+                #cap.set(cv2.CAP_PROP_FOCUS, outer_ticker)
                 if not ret:
                     print('Cannot read video.')
                     break
